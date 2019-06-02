@@ -7,3 +7,4 @@ For more detail here is the github link: https://github.com/intel/safestringlib
 
 # TODO
 * Maybe can do the perfermance test?
+* PR sprintf_s() and sscanf_s()
