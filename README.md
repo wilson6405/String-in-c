@@ -3,8 +3,12 @@ Recall and practice the manipulation of strings and memory buffers in c.
 
 I use "safestringlib" the C library which prevent buffer overflows, string format attacks, conversion overflows/underflows, etc.
 
-For more detail here is the github link: https://github.com/intel/safestringlib
+Otherwises, I use googletest to rewrite the unittests which is in safestringlib.
+
+For more detail here is the github link: 
+* [safestringlib](https://github.com/intel/safestringlib)
+* [googletest](https://github.com/google/googletest)
 
 # TODO
-* Maybe can do the perfermance test?
+* Maybe can do the perfermance test? How?
 * PR sprintf_s() and sscanf_s()
