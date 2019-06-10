@@ -1,7 +1,7 @@
 # Intriduction
 Recall and practice the manipulation of strings and memory buffers in c.
 
-I use the C library  "safestringlib"which prevent buffer overflows, string format attacks, conversion overflows/underflows, etc.
+I use the C library  "safestringlib" which prevent buffer overflows, string format attacks, conversion overflows/underflows, etc.
 
 Otherwises, I use googletest to rewrite the unittests which is in safestringlib.
 
