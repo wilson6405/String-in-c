@@ -12,13 +12,19 @@ CXX = g++
 RM = rm -f
 
 # Options
-BIN = strcpy_s strcmp_s strcat_s
+BIN = strcpy_s strcmp_s strcat_s strstr_s
+MAKEFLAGS = -j4
 CFLAGS = -I$(INC_DIR)
-LDFLAGS = -L$(LIB_DIR) -lsafestring_shared -lpthread -lgtest_main -g
+LDFLAGS = -L$(LIB_DIR) -lsafestring_shared -lpthread -lgtest_main
 Q = @
 ifeq ($(V), 1)
 	Q = 
 endif
+
+ifeq ($(D), 1)
+	LDFLAGS += -g
+endif
+
 
 .PHONY: clean test
 

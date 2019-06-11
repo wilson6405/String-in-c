@@ -13,7 +13,7 @@ static int32_t len2;
 static int32_t len3;
 
 // 1. Test for NULL destination check
-TEST(strcat_s, nulldest) {
+TEST(strcat_s, nullDest) {
     rc = strcat_s(NULL, LEN, str2);
     EXPECT_EQ(rc, ESNULLP);
 }
