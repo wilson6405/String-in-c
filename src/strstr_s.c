@@ -93,43 +93,82 @@ TEST(strstr_s, substringAtBegin) {
     EXPECT_EQ(sub, &str1[0]);
 }
 
-// TEST(strstr_s, ) {
+// 11. Test for searching substring in the middle - left
+TEST(strstr_s, substringInMidLeft) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "eep it");
 
-// }
+    rc = strstr_s(str1, LEN, str2, LEN, &sub);
+    EXPECT_EQ(rc, EOK);
+    EXPECT_EQ(sub, &str1[1]);
+}
 
-// TEST(strstr_s, ) {
+// 12. Test for searching substring in the middle - right
+TEST(strstr_s, substringInMidRight) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "ethe");
 
-// }
+    rc = strstr_s(str1, LEN, str2, LEN, &sub);
+    EXPECT_EQ(rc, EOK);
+    EXPECT_EQ(sub, &str1[15]);
+}
 
-// TEST(strstr_s, ) {
+// 13. Test for just right length 1
+TEST(strstr_s, justRightLength_1) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "he");
 
-// }
+    len1 = strlen(str1);
+    len2 = strlen(str2);
 
-// TEST(strstr_s, ) {
+    rc = strstr_s(str1, len1, str2, len2, &sub);
+    EXPECT_EQ(rc, EOK);
+    EXPECT_EQ(sub, &str1[17]);
+}
 
-// }
+// 14. Test for just right length 2
+TEST(strstr_s, justRightLength_2) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "er");
 
-// TEST(strstr_s, ) {
+    len1 = strlen(str1);
+    len2 = strlen(str2);
 
-// }
+    rc = strstr_s(str1, len1, str2, len2, &sub);
+    EXPECT_EQ(rc, EOK);
+    EXPECT_EQ(sub, &str1[18]);
+}
 
-// TEST(strstr_s, ) {
+// 15. Test for searching for nothing 1
+TEST(strstr_s, searchingForNothing_1) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "it all");
 
-// }
+    rc = strstr_s(str1, 3, str2, LEN, &sub);
+    EXPECT_EQ(rc, ESNOTFND);
+}
 
-// TEST(strstr_s, ) {
+// 16. Test for searching for nothing 2
+TEST(strstr_s, searchingForNothing_2) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "1234");
 
-// }
+    len1 = strlen(str1);
 
-// TEST(strstr_s, ) {
+    rc = strstr_s(str1, len1, str2, LEN, &sub);
+    EXPECT_EQ(rc, ESNOTFND);
+    EXPECT_EQ(sub, nullptr);
+}
 
-// }
+// 17. Test for comparing to legacy
+TEST(strstr_s, compareToLegacy) {
+    strcpy(str1, "keep it all together");
+    strcpy(str2, "eep");
 
-// TEST(strstr_s, ) {
+    rc = strstr_s(str1, LEN, str2, LEN, &sub);
+    EXPECT_EQ(rc, EOK);
 
-// }
-
-// TEST(strstr_s, ) {
-
-// }
+    std_sub = strstr(str1, str2);
+    EXPECT_EQ(sub, std_sub);
+}
 
